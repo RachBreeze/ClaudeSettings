@@ -14,11 +14,13 @@ This configuration package ensures Claude Code:
 
 | File | Purpose |
 |------|---------|
-| `CLAUDE.md` | Global instructions with naming rules & **WCAG 2.2 AA requirements** |
+| `CLAUDE.md` | Global instructions with naming rules, **WCAG 2.2 AA requirements** & **Mermaid.js rules** |
 | `settings.json` | Model selection and permissions |
 | `new-plan.md` | Custom `/new-plan` command |
 | `accessible-component.md` | Custom `/accessible-component` command for web development |
+| `create-mermaid.md` | Custom `/create-mermaid` command for diagrams |
 | `WCAG-quick-reference.md` | Quick reference guide for web accessibility |
+| `mermaid-quick-reference.md` | Quick reference guide for GitHub-compatible Mermaid diagrams |
 | `install.sh` | Automatic installation script |
 | `claude-code-setup-guide.md` | Detailed documentation |
 
@@ -99,6 +101,56 @@ For detailed accessibility guidelines, see:
 - `~/.claude/CLAUDE.md` - Full requirements built into every session
 - `~/.claude/WCAG-quick-reference.md` - Quick reference guide
 - Use `/accessible-component` command for pre-built accessible patterns
+
+---
+
+## 📊 Mermaid Diagrams - GitHub Compatibility (CRITICAL)
+
+### **ALL Mermaid diagrams MUST render on GitHub**
+
+This is NON-NEGOTIABLE. Every Mermaid diagram you create must use the correct format to display on GitHub.
+
+#### The ONE Correct Format:
+
+```markdown
+```mermaid
+graph TD
+    A[Start] --> B[End]
+```
+```
+
+#### Critical Rules:
+
+1. **ALWAYS use \`\`\`mermaid fence** (three backticks + word "mermaid")
+2. **NEVER use HTML divs** - `<div class="mermaid">` won't render
+3. **Test on mermaid.live** before committing - https://mermaid.live/
+4. **Use proper syntax** - arrows are `-->` not `->`
+
+#### Before You Commit ANY Diagram:
+
+✅ **Quick checks (1 minute):**
+1. Using \`\`\`mermaid fence (not \`\`\`mermaidjs or \`\`\`diagram)
+2. Tested on https://mermaid.live/
+3. No syntax errors
+4. Labels are descriptive
+
+#### Quick Reference
+
+For detailed Mermaid guidelines, see:
+- `~/.claude/CLAUDE.md` - Full requirements built into every session
+- `~/.claude/mermaid-quick-reference.md` - Quick reference guide with examples
+- Use `/create-mermaid` command for pre-built diagram templates
+
+#### Supported Diagram Types:
+
+- ✅ Flowcharts / Process flows
+- ✅ Sequence diagrams
+- ✅ Class diagrams
+- ✅ State diagrams
+- ✅ Entity Relationship Diagrams (ERD)
+- ✅ Gantt charts
+- ✅ Pie charts
+- ✅ Git graphs
 
 ---
 
@@ -188,6 +240,20 @@ This will:
 5. Provide keyboard support
 6. Include testing checklist
 
+### Create GitHub-Compatible Mermaid Diagram
+
+```bash
+# In Claude Code session
+/create-mermaid
+```
+
+This will:
+1. Ask what type of diagram you need
+2. Create proper \`\`\`mermaid fence format
+3. Test syntax on mermaid.live
+4. Ensure GitHub compatibility
+5. Provide complete markdown code
+
 ### Check Configuration
 
 ```bash
@@ -200,23 +266,36 @@ This will:
 
 ---
 
-## 📖 Accessibility Resources
+## 📖 References
 
-### Built-In References
+### Accessibility Resources
+
+**Built-In References:**
 - `~/.claude/CLAUDE.md` - Complete WCAG 2.2 AA requirements
 - `~/.claude/WCAG-quick-reference.md` - Quick reference guide
 
-### External Tools
+**External Tools:**
 - **axe DevTools** - Browser extension for automated testing
 - **WAVE** - Visual accessibility evaluation tool  
 - **WebAIM Contrast Checker** - https://webaim.org/resources/contrastchecker/
 - **W3C Validator** - https://validator.w3.org/
 
-### Screen Readers
+**Screen Readers:**
 - **NVDA** (Windows, Free) - https://www.nvaccess.org/
 - **JAWS** (Windows, Paid) - Industry standard
 - **VoiceOver** (Mac/iOS, Built-in) - Cmd+F5 to toggle
 - **TalkBack** (Android, Built-in) - In accessibility settings
+
+### Mermaid Diagram Resources
+
+**Built-In References:**
+- `~/.claude/CLAUDE.md` - Complete Mermaid requirements
+- `~/.claude/mermaid-quick-reference.md` - Quick reference with examples
+
+**External Tools:**
+- **Mermaid Live Editor** - https://mermaid.live/ (TEST ALL DIAGRAMS HERE)
+- **Official Mermaid Docs** - https://mermaid.js.org/
+- **GitHub Markdown Guide** - https://docs.github.com/en/get-started/writing-on-github
 
 ---
 
@@ -388,6 +467,8 @@ You'll know everything is working when:
 ✅ Form inputs always have labels
 ✅ Images always have alt text
 ✅ Focus indicators are always visible
+✅ Mermaid diagrams use \`\`\`mermaid fence format
+✅ Mermaid diagrams render correctly on GitHub
 
 ---
 
@@ -407,14 +488,20 @@ This configuration package is provided as-is for use with Claude Code.
 - [ ] Start Claude Code: `claude`
 - [ ] Test `/new-plan` command
 - [ ] Test `/accessible-component` command
+- [ ] Test `/create-mermaid` command
 - [ ] Read `WCAG-quick-reference.md`
+- [ ] Read `mermaid-quick-reference.md`
 - [ ] Create your first accessible component
 - [ ] Test with keyboard only
 - [ ] Run axe DevTools
+- [ ] Create a test Mermaid diagram
+- [ ] Verify diagram on https://mermaid.live/
 - [ ] You're ready to code! 🎉
 
 ---
 
 **Remember: Accessibility is not optional. It's built into every line of web code you write.**
 
-Happy coding! ♿✨
+**Remember: Mermaid diagrams must use \`\`\`mermaid fence to render on GitHub.**
+
+Happy coding! ♿📊✨

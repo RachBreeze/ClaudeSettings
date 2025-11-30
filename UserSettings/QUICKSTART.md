@@ -52,10 +52,20 @@ Every web component automatically includes:
 ✅ Semantic HTML
 ```
 
-### 3. Custom Commands
+### 3. GitHub-Compatible Mermaid Diagrams (MANDATORY)
+```
+Every Mermaid diagram automatically uses:
+✅ ```mermaid fence format
+✅ Proper syntax (tested)
+✅ GitHub compatibility
+✅ Clear, descriptive labels
+```
+
+### 4. Custom Commands
 ```
 /new-plan              → Create properly named plan
 /accessible-component  → Create WCAG-compliant web code
+/create-mermaid        → Create GitHub-compatible diagram
 /status               → Check configuration
 ```
 
@@ -81,18 +91,38 @@ Every web component automatically includes:
 
 ---
 
+## 📊 Mermaid Diagram Rules (CRITICAL)
+
+**Before creating ANY Mermaid diagram:**
+
+### The ONE Rule to Remember
+```
+ALWAYS use ```mermaid fence format
+NEVER use HTML divs or wrong tags
+```
+
+### The 2-Minute Pre-Commit Test
+1. 📝 Check fence format: \`\`\`mermaid
+2. 🧪 Test on https://mermaid.live/
+3. ✅ Verify no syntax errors
+
+**If ANY test fails → Fix before committing!**
+
+---
+
 ## 📖 Essential Files
 
 | File | When to Use |
 |------|-------------|
 | `README.md` | Start here - complete overview |
 | `WCAG-quick-reference.md` | Before ANY web development |
+| `mermaid-quick-reference.md` | Before ANY diagram creation |
 | `CLAUDE.md` | To see all rules Claude follows |
 | `claude-code-setup-guide.md` | Detailed configuration guide |
 
 ---
 
-## 🎓 Your First 3 Tasks
+## 🎓 Your First 4 Tasks
 
 ### Task 1: Create Your First Plan (2 minutes)
 ```bash
@@ -110,7 +140,15 @@ claude           # Start Claude Code
 # Test it with keyboard and axe DevTools
 ```
 
-### Task 3: Verify Everything Works (3 minutes)
+### Task 3: Create a Mermaid Diagram (3 minutes)
+```bash
+/create-mermaid
+# Say: "I need a flowchart"
+# You'll get: GitHub-compatible diagram
+# Verify on https://mermaid.live/
+```
+
+### Task 4: Verify Everything Works (3 minutes)
 ```bash
 /status          # Check config loaded
 cat ~/.claude/CLAUDE.md | head -50  # See rules
@@ -161,6 +199,8 @@ You're all set when:
 ✅ Colors meet 4.5:1 contrast
 ✅ Everything works with keyboard
 ✅ axe DevTools shows no errors
+✅ Mermaid diagrams use \`\`\`mermaid fence
+✅ Diagrams render on mermaid.live
 
 ---
 
@@ -170,6 +210,11 @@ You're all set when:
 - Read `WCAG-quick-reference.md` (15 min read)
 - Download axe DevTools browser extension
 - Test with NVDA screen reader (free)
+
+**Mermaid Diagrams:**
+- Read `mermaid-quick-reference.md` (10 min read)
+- Bookmark https://mermaid.live/
+- Practice with different diagram types
 
 **Configuration:**
 - Edit `~/.claude/CLAUDE.md` for global rules
@@ -185,6 +230,9 @@ You're all set when:
 3. **Install axe DevTools:** Essential for every commit
 4. **Test with keyboard first:** Catches 80% of issues
 5. **Read WCAG reference:** Bookmark `WCAG-quick-reference.md`
+6. **Always use /create-mermaid:** For GitHub-compatible diagrams
+7. **Test on mermaid.live:** Before committing any diagram
+8. **Keep Mermaid simple:** 5-15 nodes is ideal
 
 ---
 
@@ -197,6 +245,8 @@ You're all set when:
 4. Every feature → keyboard test
 5. Every commit → axe DevTools
 6. Every component → screen reader test
+7. Every diagram → ```mermaid fence
+8. Every Mermaid → test on mermaid.live
 ```
 
 ---
@@ -210,16 +260,22 @@ claude
 # Create accessible components
 /accessible-component
 
+# Create diagrams
+/create-mermaid
+
 # Build amazing, accessible things! 🚀
 ```
 
 **Remember:** Accessibility is built in, not bolted on.
+
+**Remember:** Mermaid diagrams must render on GitHub.
 
 ---
 
 **Quick Links:**
 - 📖 Full Guide: `README.md`
 - ♿ Accessibility: `WCAG-quick-reference.md`
+- 📊 Mermaid: `mermaid-quick-reference.md`
 - ⚙️ All Rules: `CLAUDE.md`
 - 🛠️ Detailed Setup: `claude-code-setup-guide.md`
 
